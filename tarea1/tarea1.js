@@ -31,6 +31,7 @@ document.querySelector("#boton-continuar").onclick = function () {
         $integrantes.style = "display: visible";
         document.querySelector("#boton-continuar").disabled = true;
         document.querySelector("#cantidad-integrantes").disabled = true;
+        document.querySelector("#reset").disabled = false;
     }
 }
 
@@ -84,9 +85,29 @@ document.querySelector("#boton-calcular").onclick = function () {
     if(hayEdadInvalida(edades)){
         alert("Todas las edades deben ser mayores a 0");
     }else{
+        document.querySelector("#resultados").style = "display: visible";
         document.querySelector("#mayor").textContent = `La mayor edad es ${obtenerMayorEdad(edades)}`;
         document.querySelector("#menor").textContent = `La menor edad es ${obtenerMenorEdad(edades)}`;
         document.querySelector("#promedio").textContent = `La edad promedio aproximada es ${obtenerEdadPromedio(edades)}`;
     }
 }
+
+function eliminarLabelsEInputs(nodo){
+    const $labels = nodo.querySelectorAll("label");
+    for(let i=0; i<$labels.length; i++){
+        nodo.removeChild($labels[i]);
+    }
+}
+
+document.querySelector("#reset").onclick = function(){
+    const $integrantes = document.querySelector("#integrantes");
+    eliminarLabelsEInputs($integrantes);
+    $integrantes.style = "display: none";
+    document.querySelector("#boton-continuar").disabled = false;
+    document.querySelector("#cantidad-integrantes").disabled = false;
+    document.querySelector("#reset").disabled = true;
+    document.querySelector("#resultados").style = "display: none";
+}
+
+
 
