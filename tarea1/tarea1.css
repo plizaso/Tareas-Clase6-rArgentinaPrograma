@@ -5,8 +5,8 @@ body{
     text-align: center;
 }
 
-label{
-    display: block;
+label.edad, label.salario{
+    margin-left: 10px;
 }
 
 #integrantes{
@@ -26,7 +26,18 @@ button{
     border-radius: 25px;
 }
 
-#boton-calcular{
+#boton-calcular, #boton-agregar-salarios, #boton-quitar-salarios{
+    margin-top: 15px;
+}
+
+.integrante{
+    display: block;
+}
+
+#resultados-edad, #resultados-salario{
+    border-top-style: solid;
+    border-width: 1px;
+    border-color: whitesmoke;
     margin-top: 15px;
 }
 
